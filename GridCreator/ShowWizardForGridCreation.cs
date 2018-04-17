@@ -107,19 +107,18 @@ namespace GridCreator
         private void MenuItemCallback(object sender, EventArgs e)
         {
             string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
-            string title = "ShowWizardForGridCreation";
 
             var GridCreatorDialog = new GridCreatorDialog();
             GridCreatorDialog.ShowDialog();
 
-            // Show a message box to prove we were here
-            //VsShellUtilities.ShowMessageBox(
-            //    this.ServiceProvider,
-            //    "documentLanguage is now local variable, not static",
-            //    title,
-            //    OLEMSGICON.OLEMSGICON_INFO,
-            //    OLEMSGBUTTON.OLEMSGBUTTON_OK,
-            //    OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+        }
+
+        public void test()
+        {
+            var dte = ServiceProvider.GetService(typeof(DTE)) as DTE2;
+
+            TextSelection ActiveDocumentCode = (TextSelection)(dte.ActiveDocument.Selection);
+            ActiveDocumentCode.Insert("\rvar x=0;", System.Convert.ToInt32(vsInsertFlags.vsInsertFlagsInsertAtEnd));
         }
     }
 }
