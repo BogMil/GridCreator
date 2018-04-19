@@ -118,7 +118,9 @@ namespace GridCreator
             var dte = ServiceProvider.GetService(typeof(DTE)) as DTE2;
 
             TextSelection ActiveDocumentCode = (TextSelection)(dte.ActiveDocument.Selection);
-            ActiveDocumentCode.Insert("\rvar x=0;", System.Convert.ToInt32(vsInsertFlags.vsInsertFlagsInsertAtEnd));
+            ActiveDocumentCode.Insert("\r<div>\r<p>test></p>\r</div>", System.Convert.ToInt32(vsInsertFlags.vsInsertFlagsInsertAtEnd));
+            ActiveDocumentCode = (TextSelection)(dte.ActiveDocument.Selection);
+            ActiveDocumentCode.SmartFormat();
         }
     }
 }
