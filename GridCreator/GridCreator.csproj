@@ -59,6 +59,7 @@
       <DependentUpon>GridCreatorDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="GridCreatorPackage.cs" />
+    <Compile Include="Model\JqGridModel.cs" />
     <Compile Include="Page2.xaml.cs">
       <DependentUpon>Page2.xaml</DependentUpon>
     </Compile>

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using GridCreator.Model;
+using System.Windows;
 
 namespace GridCreator
 {
@@ -7,14 +8,13 @@ namespace GridCreator
     /// </summary>
     public partial class GridCreatorDialog
     {
-        TestPerson context;
+        JqGridModel context;
         public GridCreatorDialog()
         {
             InitializeComponent();
-            context = new TestPerson()
+            context = new JqGridModel()
             {
-                Ime = "testIme",
-                Prezime = "testPrezime"
+                TableId="testIdTable"
             };
             testFrame.NavigationService.Navigate(new Page1(context));
             
@@ -29,7 +29,7 @@ namespace GridCreator
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             testFrame.NavigationService.Navigate(new Page2());
-            context.Ime = "promena";
+            //context.TableId = "promena";
 
         }
 

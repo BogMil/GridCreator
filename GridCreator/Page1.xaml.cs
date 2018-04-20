@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GridCreator.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,10 @@ namespace GridCreator
     /// </summary>
     public partial class Page1
     {
-        public Page1(TestPerson testPerson)
+        public Page1(JqGridModel jqGridModel)
         {
             InitializeComponent();
-            DataContext = testPerson;
+            DataContext = jqGridModel;
         }
     }
 }
