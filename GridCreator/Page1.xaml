@@ -8,9 +8,9 @@
              d:DesignHeight="200" d:DesignWidth="800">
     <StackPanel>
         <TextBlock>Test page 1</TextBlock>
-        <TextBox Text="{Binding Ime }"></TextBox>
+        <TextBox Text="{Binding TableId, Mode=TwoWay}"></TextBox>
         <TextBox></TextBox>
-        <TextBlock>Test page 1</TextBlock>
+        <TextBlock Text="{Binding NavigatorId, Mode=TwoWay}"></TextBlock>
 
     </StackPanel>
 </Page>
