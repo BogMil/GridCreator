@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 
-namespace GridCreator
+namespace GridCreator.ViewModel
 {
     class testViewModel
     {

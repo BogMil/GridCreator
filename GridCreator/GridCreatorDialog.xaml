@@ -4,26 +4,38 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GridCreator"
-             
+             xmlns:ViewModel="clr-namespace:GridCreator.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="800">
+             d:DesignHeight="750" d:DesignWidth="800">
     <Window.Resources>
-        <local:testViewModel x:Key="vm"/>
+        <ViewModel:testViewModel x:Key="vm"/>
     </Window.Resources>
     <Grid Height="700">
         <StackPanel>
-            <TextBlock Height="50" Margin="10 10">asd</TextBlock>
             <Button Height="50" Margin="10 10" Command="{Binding TestCommand, Source={StaticResource vm}}">click me</Button>
         </StackPanel>
 
-        <Frame x:Name="testFrame" NavigationUIVisibility="Hidden" Height="200" Margin="10 150 10 50"/>
-        <StackPanel Margin="0 500 0 0">
-            <Button Click="Button_Click">
+        
+        <Frame x:Name="testFrame" NavigationUIVisibility="Hidden" Margin="10,85,10,0" Height="550" VerticalAlignment="Top"
+            ScrollViewer.VerticalScrollBarVisibility="Visible" 
+            ScrollViewer.CanContentScroll="True" 
+        />
+        
+        <Grid Margin="0 650 0 0"  Height="40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Grid.Row="1" Margin="10 0 0 0" Click="Button_Click">
                 Page 1
             </Button>
-            <Button Click="Button_Click_1">
+            <Button Grid.Column="2" Grid.Row="1" Margin="0 0 10 0" Click="Button_Click_1">
                 Page 2
             </Button>
-        </StackPanel>
-    </Grid> 
+        </Grid>
+    </Grid>
 </Window>

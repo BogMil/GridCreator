@@ -5,12 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GridCreator"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="800">
-    <StackPanel>
-        <TextBlock>Test page 1</TextBlock>
-        <TextBox Text="{Binding TableId, Mode=TwoWay}"></TextBox>
-        <TextBox></TextBox>
-        <TextBlock Text="{Binding NavigatorId, Mode=TwoWay}"></TextBlock>
+             d:DesignHeight="800" d:DesignWidth="800">
+    <ScrollViewer>
+        <StackPanel>
+            <TextBlock>Test page 1</TextBlock>
+            <TextBox Text="{Binding TableId, Mode=TwoWay}"></TextBox>
+            <TextBox></TextBox>
+            <TextBlock Text="{Binding NavigatorId, Mode=TwoWay}"></TextBlock>
+            <TextBlock Text="Test" Margin="0 700 0 0 "></TextBlock>
 
-    </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
 </Page>
