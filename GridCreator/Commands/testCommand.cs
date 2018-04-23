@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace GridCreator
+namespace GridCreator.Commands
 {
     class testCommand : ICommand
     {

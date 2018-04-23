@@ -1,5 +1,4 @@
-﻿using GridCreator.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +16,13 @@ using System.Windows.Shapes;
 namespace GridCreator.View.Pages
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for ChoseDataSourcePage.xaml
     /// </summary>
-    public partial class Page1
+    public partial class ChoseDataSourcePage : UserControl
     {
-        public Page1(JqGridModel jqGridModel)
+        public ChoseDataSourcePage()
         {
             InitializeComponent();
-            DataContext = jqGridModel;
         }
     }
 }

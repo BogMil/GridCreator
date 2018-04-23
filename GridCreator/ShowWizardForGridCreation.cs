@@ -97,6 +97,13 @@ namespace GridCreator
             Instance = new ShowWizardForGridCreation(package);
         }
 
+
+        public static GridCreatorDialog BaseWindowInstance
+        {
+            get;
+            private set;
+        }
+
         /// <summary>
         /// This function is the callback used to execute the command when the menu item is clicked.
         /// See the constructor to see how the menu item is associated with this function using
@@ -110,6 +117,7 @@ namespace GridCreator
             string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
 
             var GridCreatorDialog = new GridCreatorDialog();
+            BaseWindowInstance = GridCreatorDialog;
             GridCreatorDialog.ShowDialog();
 
         }
