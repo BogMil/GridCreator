@@ -13,7 +13,7 @@
     </UserControl.Resources>
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <ComboBox Width="300" ItemsSource="{Binding AddColumnsOptions}" Name="combo">
+            <ComboBox Width="300" ItemsSource="{Binding AddColumnsOptions, Mode=OneTime}" Name="combo">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
                         <i:InvokeCommandAction Command="{Binding SetAddColumnOptionCommand, Source={StaticResource vm}}" x:Name="interactivityFix"

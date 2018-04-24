@@ -16,8 +16,8 @@ namespace GridCreator.Model
         }
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private CollectionView _AddColumnsOptions;
-        private string _AddColumnsOption;
+        private CollectionView _AddColumnsOptions;  
+        private string _AddColumnsOption = "Manualy add columns and their definition";
         private string _TableId = "TestTableId";
         private string _NavigatorId = "TestNavigatorId";
         private int i = 0;
