@@ -2,7 +2,7 @@
 using GridCreator.View.Pages;
 using System.Windows;
 
-namespace GridCreator
+namespace GridCreator.View
 {
     /// <summary>
     /// Interaction logic for GridCreatorDialog.xaml

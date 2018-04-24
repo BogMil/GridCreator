@@ -27,6 +27,16 @@ namespace GridCreator.Model
             get { return _AddColumnsOptions; }
         }
 
+        public string AddColumnsOption
+        {
+            get { return _AddColumnsOption; }
+            set
+            {
+                if (_AddColumnsOption != value)
+                    _AddColumnsOption = value;
+            }
+        }
+
         public string TableId
         {
             get { return _TableId; }

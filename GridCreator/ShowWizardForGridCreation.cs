@@ -5,6 +5,7 @@ using System.ComponentModel.Design;
 using System.Globalization;
 using EnvDTE;
 using EnvDTE80;
+using GridCreator.View;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.Utilities;

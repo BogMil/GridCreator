@@ -3,14 +3,14 @@ using System.Windows.Input;
 
 namespace GridCreator.Commands
 {
-    class testCommand : ICommand
+    class CustomCommand : ICommand
     {
         Action<object> _executeMethod;
         Func<object, bool> _canExecuteMethod;
 
         public event EventHandler CanExecuteChanged;
 
-        public testCommand(Action<object> executeMethod, Func<object, bool> canExecuteMethod)
+        public CustomCommand(Action<object> executeMethod, Func<object, bool> canExecuteMethod)
         {
             _executeMethod = executeMethod;
             _canExecuteMethod = canExecuteMethod;

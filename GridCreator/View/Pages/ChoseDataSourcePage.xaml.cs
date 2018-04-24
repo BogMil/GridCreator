@@ -25,10 +25,5 @@ namespace GridCreator.View.Pages
             InitializeComponent();
             DataContext = JqGridModelSingletonFactory.Instance;
         }
-
-        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
     }
 }
