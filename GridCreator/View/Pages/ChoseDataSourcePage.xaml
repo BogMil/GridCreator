@@ -4,13 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GridCreator.View.Pages"
+             xmlns:ViewModel ="clr-namespace:GridCreator.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ViewModel:ChangePageViewModel x:Key="vm"/>
+    </UserControl.Resources>
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <ComboBox Width="300">
-                <ComboBoxItem IsSelected="True" ToolTip="Manualy add columns and their definition">Add columns manualy</ComboBoxItem>
-                <ComboBoxItem>Add columns from SQL Server</ComboBoxItem>
+            <ComboBox Width="300" ItemsSource="{Binding AddColumnsOptions}" SelectionChanged="OnSelectionChanged">
             </ComboBox>
         </StackPanel>
     </Grid>

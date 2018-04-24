@@ -23,6 +23,12 @@ namespace GridCreator.View.Pages
         public ChoseDataSourcePage()
         {
             InitializeComponent();
+            DataContext = JqGridModelSingletonFactory.Instance;
+        }
+
+        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }

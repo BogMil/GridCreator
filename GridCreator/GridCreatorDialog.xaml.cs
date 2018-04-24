@@ -13,30 +13,16 @@ namespace GridCreator
         public GridCreatorDialog()
         {
             InitializeComponent();
-            context = new JqGridModel()
-            {
-
-            };
+            context = JqGridModelSingletonFactory.Instance;
 
             testFrame.NavigationService.Navigate(new ChoseDataSourcePage());
-            
-            DataContext=context;
+
+            DataContext = context;
         }
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    testFrame.NavigationService.Navigate(new Page1(context));
-        //}
 
-        //private void Button_Click_1(object sender, RoutedEventArgs e)
-        //{
-        //    testFrame.NavigationService.Navigate(new Page2());
-
-        //}
-
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var test = ShowWizardForGridCreation.Instance;
-        //    test.test();
-        //}
+        private void Close(object sender, System.EventArgs e)
+        {
+            JqGridModelSingletonFactory.setInstanceToNull();
+        }
     }
 }

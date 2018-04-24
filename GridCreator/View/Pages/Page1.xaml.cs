@@ -21,10 +21,10 @@ namespace GridCreator.View.Pages
     /// </summary>
     public partial class Page1
     {
-        public Page1(JqGridModel jqGridModel)
+        public Page1()
         {
             InitializeComponent();
-            DataContext = jqGridModel;
+            DataContext = JqGridModelSingletonFactory.Instance;
         }
     }
 }

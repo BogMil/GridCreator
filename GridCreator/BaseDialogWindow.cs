@@ -7,8 +7,8 @@ namespace GridCreator
 
         public BaseDialogWindow()
         {
-            this.HasMaximizeButton = true;
-            this.HasMinimizeButton = true;
+            this.HasMaximizeButton = false;
+            this.HasMinimizeButton = false;
         }
     }
 }
