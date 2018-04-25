@@ -55,15 +55,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\CustomCommand.cs" />
-    <Compile Include="View\GridCreatorDialog.xaml.cs">
-      <DependentUpon>GridCreatorDialog.xaml</DependentUpon>
+    <Compile Include="Commands\GoToNextPageCommand.cs" />
+    <Compile Include="View\GridCreatorWindow.xaml.cs">
+      <DependentUpon>GridCreatorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="GridCreatorPackage.cs" />
     <Compile Include="JqGridModelSingletonFactory.cs" />
     <Compile Include="Model\JqGridModel.cs" />
     <Compile Include="PageNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShowWizardForGridCreation.cs" />
+    <Compile Include="ShowGridCreatorWindow.cs" />
     <Compile Include="ViewModel\ChangePageViewModel.cs" />
     <Compile Include="View\Pages\ChoseDataSourcePage.xaml.cs">
       <DependentUpon>ChoseDataSourcePage.xaml</DependentUpon>
@@ -203,7 +204,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="View\GridCreatorDialog.xaml">
+    <Page Include="View\GridCreatorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

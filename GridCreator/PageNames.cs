@@ -2,8 +2,8 @@
 {
     class PageNames
     {
-        public static string ChoseDataSourcePage = "ChoseDataSourcePage";
+        public const string ChoseDataSourcePage = "ChoseDataSourcePage";
 
-        public static string Page1 = "Page1";
+        public const string Page1 = "Page1";
     }
 }

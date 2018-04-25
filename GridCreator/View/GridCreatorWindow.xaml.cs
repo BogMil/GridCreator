@@ -7,17 +7,18 @@ namespace GridCreator.View
     /// <summary>
     /// Interaction logic for GridCreatorDialog.xaml
     /// </summary>
-    public partial class GridCreatorDialog : Window
+    public partial class GridCreatorWindow : Window
     {
-        JqGridModel context;
-        public GridCreatorDialog()
+        public static GridCreatorWindow Instance { get; set; }
+
+        public GridCreatorWindow()
         {
+            DataContext = JqGridModelSingletonFactory.Instance;
+            Instance = this;
+
             InitializeComponent();
-            context = JqGridModelSingletonFactory.Instance;
 
-            testFrame.NavigationService.Navigate(new ChoseDataSourcePage());
-
-            DataContext = context;
+            PageFrame.NavigationService.Navigate(new ChoseDataSourcePage());
         }
 
         private void Close(object sender, System.EventArgs e)
