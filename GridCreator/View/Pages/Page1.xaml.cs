@@ -19,12 +19,16 @@ namespace GridCreator.View.Pages
     /// <summary>
     /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class Page1
+    public partial class Page1 : IBasePage
     {
         public Page1()
         {
             InitializeComponent();
             DataContext = JqGridModelSingletonFactory.Instance;
         }
+
+        public String NextPage {
+            get => typeof(Page2).ToString();
+            set => throw new NotImplementedException(); }
     }
 }

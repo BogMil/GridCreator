@@ -2,6 +2,7 @@
 using GridCreator.View.Pages;
 using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace GridCreator.Commands
@@ -25,16 +26,31 @@ namespace GridCreator.Commands
         public void Execute(object parameter)
         {
             var frame = _baseWindowInstance.PageFrame;
-            var currentPage = frame.Content.GetType().Name;
+            var currentPageType = frame.Content.GetType();
 
-            switch (currentPage)
-            {
-                case PageNames.ChoseDataSourcePage :
+            var currentPage = (IBasePage)Activator.CreateInstance(currentPageType);
 
-                    frame.NavigationService.Navigate(new Page1());
-                    _baseWindowInstance.NextButton.IsEnabled = false;
-                    break;
-            }
+            var x = currentPage.NextPage.GetType();
+
+            var nextPage = (Page)Activator.CreateInstance(x);
+
+
+            NavigateToPage(frame, nextPage);
+            //switch (currentPage)
+            //{
+            //    case PageNames.ChoseDataSourcePage :
+
+            //        NavigateToPage(frame, new Page1());
+            //        break;
+            //    case PageNames.Page1:
+            //        NavigateToPage(frame, new Page2());
+            //        break;
+            //}
+        }
+
+        private void NavigateToPage(Frame frame, Page page)
+        {
+            frame.NavigationService.Navigate(page);
         }
     }
 }

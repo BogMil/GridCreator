@@ -18,12 +18,14 @@ namespace GridCreator.View.Pages
     /// <summary>
     /// Interaction logic for ChoseDataSourcePage.xaml
     /// </summary>
-    public partial class ChoseDataSourcePage : UserControl
+    public partial class ChoseDataSourcePage : IBasePage
     {
         public ChoseDataSourcePage()
         {
             InitializeComponent();
             DataContext = JqGridModelSingletonFactory.Instance;
         }
+
+        public string NextPage { get => typeof(Page1).ToString(); set => throw new NotImplementedException(); }
     }
 }
