@@ -1,5 +1,4 @@
-﻿using GridCreator.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,32 +16,24 @@ using System.Windows.Shapes;
 namespace GridCreator.View.Pages
 {
     /// <summary>
-    /// Interaction logic for ChoseDataSourcePage.xaml
+    /// Interaction logic for BasicJqGridOptions.xaml
     /// </summary>
-    public partial class ChoseDataSourcePage : IBasePage
+    public partial class BasicJqGridOptions : IBasePage
     {
-        private JqGridModel _jqGridModel;
-
-        public ChoseDataSourcePage()
+        public BasicJqGridOptions()
         {
-            _jqGridModel = JqGridModelSingletonFactory.Instance;
             InitializeComponent();
             DataContext = JqGridModelSingletonFactory.Instance;
         }
 
         public void GoToNextPage(GridCreatorWindow baseWindow)
         {
-            if(_jqGridModel.AddColumnsOption== "Manualy add columns and their definition")
-             baseWindow.PageFrame.NavigationService.Navigate(new BasicJqGridOptions());
-
-            if (_jqGridModel.AddColumnsOption == "Add columns from SQL Server")
-                baseWindow.PageFrame.NavigationService.Navigate(new Page2());
-
+            return;
         }
 
         public void GoToPreviousPage(GridCreatorWindow baseWindow)
         {
-            return;
+            baseWindow.PageFrame.NavigationService.Navigate(new ChoseDataSourcePage());
         }
     }
 }

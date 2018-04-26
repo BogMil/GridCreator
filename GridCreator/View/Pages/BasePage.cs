@@ -9,6 +9,7 @@ namespace GridCreator.View.Pages
 {
     public interface IBasePage
     {
-        string NextPage { get; set; }
+        void GoToNextPage(GridCreatorWindow baseWindow);
+        void GoToPreviousPage(GridCreatorWindow baseWindow);
     }
 }

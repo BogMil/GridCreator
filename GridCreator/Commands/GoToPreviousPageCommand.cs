@@ -1,18 +1,20 @@
 ﻿using GridCreator.View;
 using GridCreator.View.Pages;
 using System;
-using System.Windows;
-using System.Windows.Controls;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace GridCreator.Commands
 {
-    public class GoToNextPageCommand : ICommand
+    class GoToPreviousPageCommand : ICommand
     {
         public GridCreatorWindow _baseWindowInstance;
         public event EventHandler CanExecuteChanged;
 
-        public GoToNextPageCommand(GridCreatorWindow baseWindowInstance)
+        public GoToPreviousPageCommand(GridCreatorWindow baseWindowInstance)
         {
             _baseWindowInstance = baseWindowInstance;
         }
@@ -30,7 +32,7 @@ namespace GridCreator.Commands
 
             var currentPage = (IBasePage)Activator.CreateInstance(currentPageType);
 
-            currentPage.GoToNextPage(_baseWindowInstance);
+            currentPage.GoToPreviousPage(_baseWindowInstance);
         }
     }
 }

@@ -14,12 +14,14 @@ namespace GridCreator.Model
             list.Add(new AddColumnOption("Add columns from SQL Server"));
             _AddColumnsOptions = new CollectionView(list);
         }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private CollectionView _AddColumnsOptions;  
         private string _AddColumnsOption = "Manualy add columns and their definition";
         private string _TableId = "TestTableId";
         private string _NavigatorId = "TestNavigatorId";
+        private string _Url = "Test url";
         private int i = 0;
 
         public CollectionView AddColumnsOptions
@@ -63,6 +65,19 @@ namespace GridCreator.Model
                 {
                     _NavigatorId = value;
                     onPropertyChanged("_NavigatorId");
+                }
+            }
+        }
+
+        public string Url
+        {
+            get { return _Url; }
+            set
+            {
+                if (_Url != value)
+                {
+                    _Url = value;
+                    onPropertyChanged("_Url");
                 }
             }
         }
