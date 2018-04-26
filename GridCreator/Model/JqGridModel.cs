@@ -18,9 +18,12 @@ namespace GridCreator.Model
         public event PropertyChangedEventHandler PropertyChanged;
 
         private CollectionView _AddColumnsOptions;  
+        private List<CollumnModel> _Collumns;
         private string _AddColumnsOption = "Manualy add columns and their definition";
         private string _TableId = "TestTableId";
-        private string _NavigatorId = "TestNavigatorId";
+        private string _PagerId = "TestPagerId";
+        private string _TableWidth = "Test_TableWidth";
+        private string _TableHeight= "Test_TableHeight";
         private string _Url = "Test url";
         private int i = 0;
 
@@ -47,24 +50,21 @@ namespace GridCreator.Model
                 if (_TableId != value)
                 {
                     _TableId = value;
-                    i++;
-                    _NavigatorId = i.ToString();
 
                     onPropertyChanged("TableId");
-                    onPropertyChanged("NavigatorId");
                 }
             }
         }
 
-        public string NavigatorId
+        public string PagerId
         {
-            get { return _NavigatorId; }
+            get { return _PagerId; }
             set
             {
-                if (_NavigatorId != value)
+                if (_PagerId != value)
                 {
-                    _NavigatorId = value;
-                    onPropertyChanged("_NavigatorId");
+                    _PagerId = value;
+                    onPropertyChanged("PagerId");
                 }
             }
         }
@@ -77,7 +77,33 @@ namespace GridCreator.Model
                 if (_Url != value)
                 {
                     _Url = value;
-                    onPropertyChanged("_Url");
+                    onPropertyChanged("Url");
+                }
+            }
+        }
+
+        public string TableWidth
+        {
+            get { return _TableWidth; }
+            set
+            {
+                if (_TableWidth != value)
+                {
+                    _TableWidth = value;
+                    onPropertyChanged("TableWidth");
+                }
+            }
+        }
+
+        public string TableHeight
+        {
+            get { return _TableHeight; }
+            set
+            {
+                if (_TableHeight != value)
+                {
+                    _TableHeight = value;
+                    onPropertyChanged("TableHeight");
                 }
             }
         }

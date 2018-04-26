@@ -59,6 +59,7 @@
     <Compile Include="Commands\GoToPreviousPageCommand.cs" />
     <Compile Include="Commands\HandleButtonsVisibilityCommand.cs" />
     <Compile Include="Commands\SetAddColumnOptionCommand.cs" />
+    <Compile Include="Model\CollumnModel.cs" />
     <Compile Include="View\GridCreatorWindow.xaml.cs">
       <DependentUpon>GridCreatorWindow.xaml</DependentUpon>
     </Compile>
