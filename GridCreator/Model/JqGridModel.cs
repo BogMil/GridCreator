@@ -25,6 +25,9 @@ namespace GridCreator.Model
         private string _TableWidth = "Test_TableWidth";
         private string _TableHeight= "Test_TableHeight";
         private string _Url = "Test url";
+        private string _NumberOfRowsToShowOnLoad = "testNumberOfRowsToShowOnLoad";
+        private string _MymeType = "testMymeType";
+        private string _StyleUi = "testStyleUi";
         private int i = 0;
 
         public CollectionView AddColumnsOptions
@@ -107,6 +110,46 @@ namespace GridCreator.Model
                 }
             }
         }
+
+        public string NumberOfRowsToShowOnLoad
+        {
+            get { return _NumberOfRowsToShowOnLoad; }
+            set
+            {
+                if (_NumberOfRowsToShowOnLoad != value)
+                {
+                    _NumberOfRowsToShowOnLoad = value;
+                    onPropertyChanged("NumberOfRowsToShowOnLoad");
+                }
+            }
+        }
+
+        public string MymeType
+        {
+            get { return _MymeType; }
+            set
+            {
+                if (_MymeType != value)
+                {
+                    _MymeType = value;
+                    onPropertyChanged("MymeType");
+                }
+            }
+        }
+
+        public string StyleUi
+        {
+            get { return _StyleUi; }
+            set
+            {
+                if (_StyleUi != value)
+                {
+                    _StyleUi = value;
+                    onPropertyChanged("StyleUi");
+                }
+            }
+        }
+
 
         private void onPropertyChanged(string property)
         {

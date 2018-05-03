@@ -28,7 +28,7 @@ namespace GridCreator.View.Pages
 
         public void GoToNextPage(GridCreatorWindow baseWindow)
         {
-            return;
+            baseWindow.PageFrame.NavigationService.Navigate(new AddColumnsPage());
         }
 
         public void GoToPreviousPage(GridCreatorWindow baseWindow)
