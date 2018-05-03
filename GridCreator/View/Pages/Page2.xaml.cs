@@ -13,12 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GridCreator
+namespace GridCreator.View.Pages
 {
     /// <summary>
-    /// Interaction logic for Page2.xaml
+    /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class Page2 : UserControl
+    public partial class Page2
     {
         public Page2()
         {

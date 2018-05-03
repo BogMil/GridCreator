@@ -5,6 +5,8 @@ using System.ComponentModel.Design;
 using System.Globalization;
 using EnvDTE;
 using EnvDTE80;
+using GridCreator.Commands;
+using GridCreator.View;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.Utilities;
@@ -14,7 +16,7 @@ namespace GridCreator
     /// <summary>
     /// Command handler
     /// </summary>
-    internal sealed class ShowWizardForGridCreation
+    internal sealed class ShowGridCreatorWindow
     {
         /// <summary>
         /// Command ID.
@@ -32,11 +34,11 @@ namespace GridCreator
         private readonly Package package;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ShowWizardForGridCreation"/> class.
+        /// Initializes a new instance of the <see cref="ShowGridCreatorWindow"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
         /// </summary>
         /// <param name="package">Owner package, not null.</param>
-        private ShowWizardForGridCreation(Package package)
+        private ShowGridCreatorWindow(Package package)
         {
             if (package == null)
             {
@@ -71,7 +73,7 @@ namespace GridCreator
         /// <summary>
         /// Gets the instance of the command.
         /// </summary>
-        public static ShowWizardForGridCreation Instance
+        public static ShowGridCreatorWindow Instance
         {
             get;
             private set;
@@ -94,7 +96,7 @@ namespace GridCreator
         /// <param name="package">Owner package, not null.</param>
         public static void Initialize(Package package)
         {
-            Instance = new ShowWizardForGridCreation(package);
+            Instance = new ShowGridCreatorWindow(package);
         }
 
         /// <summary>
@@ -107,9 +109,7 @@ namespace GridCreator
         /// 
         private void MenuItemCallback(object sender, EventArgs e)
         {
-            string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
-
-            var GridCreatorDialog = new GridCreatorDialog();
+            var GridCreatorDialog = new GridCreatorWindow();
             GridCreatorDialog.ShowDialog();
 
         }

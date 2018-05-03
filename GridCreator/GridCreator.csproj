@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.VSSDK.BuildTools.15.6.152\build\Microsoft.VSSDK.BuildTools.props" Condition="Exists('..\packages\Microsoft.VSSDK.BuildTools.15.6.152\build\Microsoft.VSSDK.BuildTools.props')" />
+  <!--<Import Project="..\packages\Microsoft.VSSDK.BuildTools.15.6.152\build\Microsoft.VSSDK.BuildTools.props" Condition="Exists('..\packages\Microsoft.VSSDK.BuildTools.15.6.152\build\Microsoft.VSSDK.BuildTools.props')" />-->
   <PropertyGroup>
     <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -54,21 +54,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BaseDialogWindow.cs" />
-    <Compile Include="GridCreatorDialog.xaml.cs">
-      <DependentUpon>GridCreatorDialog.xaml</DependentUpon>
+    <Compile Include="Commands\CustomCommand.cs" />
+    <Compile Include="Commands\GoToNextPageCommand.cs" />
+    <Compile Include="Commands\GoToPreviousPageCommand.cs" />
+    <Compile Include="Commands\HandleButtonsVisibilityCommand.cs" />
+    <Compile Include="Commands\SetAddColumnOptionCommand.cs" />
+    <Compile Include="Model\CollumnModel.cs" />
+    <Compile Include="View\GridCreatorWindow.xaml.cs">
+      <DependentUpon>GridCreatorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="GridCreatorPackage.cs" />
+    <Compile Include="JqGridModelSingletonFactory.cs" />
     <Compile Include="Model\JqGridModel.cs" />
-    <Compile Include="Page2.xaml.cs">
-      <DependentUpon>Page2.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="PageNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShowWizardForGridCreation.cs" />
-    <Compile Include="testCommand.cs" />
-    <Compile Include="testViewModel.cs" />
-    <Compile Include="Page1.xaml.cs">
+    <Compile Include="ShowGridCreatorWindow.cs" />
+    <Compile Include="ViewModel\ChangePageViewModel.cs" />
+    <Compile Include="View\Pages\BasicJqGridOptions.xaml.cs">
+      <DependentUpon>BasicJqGridOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\ChoseDataSourcePage.xaml.cs">
+      <DependentUpon>ChoseDataSourcePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\BasePage.cs" />
+    <Compile Include="View\Pages\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Page2.xaml.cs">
+      <DependentUpon>Page2.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +116,9 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.CommandBars, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
@@ -182,6 +198,9 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
@@ -193,15 +212,23 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="GridCreatorDialog.xaml">
+    <Page Include="View\GridCreatorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page1.xaml">
+    <Page Include="View\Pages\BasicJqGridOptions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page2.xaml">
+    <Page Include="View\Pages\ChoseDataSourcePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Page1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Pages\Page2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -214,10 +241,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.10\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.10\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.VSSDK.BuildTools.15.6.152\build\Microsoft.VSSDK.BuildTools.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VSSDK.BuildTools.15.6.152\build\Microsoft.VSSDK.BuildTools.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.VSSDK.BuildTools.15.6.152\build\Microsoft.VSSDK.BuildTools.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VSSDK.BuildTools.15.6.152\build\Microsoft.VSSDK.BuildTools.targets'))" />
+    <!--<Error Condition="!Exists('..\packages\Microsoft.VSSDK.BuildTools.15.6.152\build\Microsoft.VSSDK.BuildTools.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VSSDK.BuildTools.15.6.152\build\Microsoft.VSSDK.BuildTools.props'))" />-->
+    <!--<Error Condition="!Exists('..\packages\Microsoft.VSSDK.BuildTools.15.6.152\build\Microsoft.VSSDK.BuildTools.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VSSDK.BuildTools.15.6.152\build\Microsoft.VSSDK.BuildTools.targets'))" />-->
   </Target>
-  <Import Project="..\packages\Microsoft.VSSDK.BuildTools.15.6.152\build\Microsoft.VSSDK.BuildTools.targets" Condition="Exists('..\packages\Microsoft.VSSDK.BuildTools.15.6.152\build\Microsoft.VSSDK.BuildTools.targets')" />
+  <!--<Import Project="..\packages\Microsoft.VSSDK.BuildTools.15.6.152\build\Microsoft.VSSDK.BuildTools.targets" Condition="Exists('..\packages\Microsoft.VSSDK.BuildTools.15.6.152\build\Microsoft.VSSDK.BuildTools.targets')" />-->
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

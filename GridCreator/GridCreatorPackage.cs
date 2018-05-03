@@ -63,7 +63,7 @@ namespace GridCreator
         protected override void Initialize()
         {
             base.Initialize();
-            ShowWizardForGridCreation.Initialize(this);
+            ShowGridCreatorWindow.Initialize(this);
         }
 
         #endregion
