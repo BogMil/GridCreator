@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Data;
 
@@ -13,12 +14,17 @@ namespace GridCreator.Model
             list.Add(new AddColumnOption("Manualy add columns and their definition"));
             list.Add(new AddColumnOption("Add columns from SQL Server"));
             _AddColumnsOptions = new CollectionView(list);
+
+            _Columns = new ObservableCollection<ColumnModel>();
+            //_Collumns.Add(new ColumnModel { ColumnName = "kolona_1", Label = "Kolona 1" });
+            //_Columns.Add(new ColumnModel { ColumnName = "kolona_2", Label = "Kolona 2" });
+            //_Columns.Add(new ColumnModel { ColumnName = "kolona_3", Label = "Kolona 3" });
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         private CollectionView _AddColumnsOptions;  
-        private List<CollumnModel> _Collumns;
+        private ObservableCollection<ColumnModel> _Columns;
         private string _AddColumnsOption = "Manualy add columns and their definition";
         private string _TableId = "TestTableId";
         private string _PagerId = "TestPagerId";
@@ -28,11 +34,20 @@ namespace GridCreator.Model
         private string _NumberOfRowsToShowOnLoad = "testNumberOfRowsToShowOnLoad";
         private string _MymeType = "testMymeType";
         private string _StyleUi = "testStyleUi";
-        private int i = 0;
+        private int _ColumnId = 0;
 
         public CollectionView AddColumnsOptions
         {
             get { return _AddColumnsOptions; }
+        }
+
+        public ObservableCollection<ColumnModel> Columns
+        {
+            get { return _Columns; }
+            set {
+                _Columns = value;
+                onPropertyChanged("Columns");
+            }
         }
 
         public string AddColumnsOption
@@ -146,6 +161,19 @@ namespace GridCreator.Model
                 {
                     _StyleUi = value;
                     onPropertyChanged("StyleUi");
+                }
+            }
+        }
+
+        public int ColumnId
+        {
+            get { return _ColumnId; }
+            set
+            {
+                if (_ColumnId != value)
+                {
+                    _ColumnId = value;
+                    onPropertyChanged("ColumnId");
                 }
             }
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GridCreator.Model;
+using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
@@ -11,8 +13,8 @@ namespace GridCreator.View.Pages
     {
         public AddColumnsPage()
         {
-            InitializeComponent();
             DataContext = JqGridModelSingletonFactory.Instance;
+            InitializeComponent();
         }
 
         public void GoToNextPage(GridCreatorWindow baseWindow)
@@ -28,7 +30,7 @@ namespace GridCreator.View.Pages
         private void SizeChangedTest(object sender, System.Windows.SizeChangedEventArgs e)
         {
             var header = e.OriginalSource as GridViewColumnHeader;
-            //GridViewColumnHeader header = senderAsThumb.TemplatedParent as GridViewColumnHeader;
+          
             if (header.Column.ActualWidth < 100)
             {
                 header.Column.Width = 100;
@@ -37,6 +39,21 @@ namespace GridCreator.View.Pages
             {
                 header.Column.Width = 500;
             }
+        }
+
+        private void test(object sender, System.Windows.RoutedEventArgs e)
+        {
+            var test = new AddColumnWindow();
+            test.ShowDialog();
+        }
+
+        private void DisplaySelected(object sender, System.Windows.RoutedEventArgs e)
+        {
+            var test = listOfCollumns.SelectedItem as ColumnModel;
+            if(test!=null)
+                MessageBox.Show(test.Label);
+            else
+                MessageBox.Show("You must select");
         }
     }
 }

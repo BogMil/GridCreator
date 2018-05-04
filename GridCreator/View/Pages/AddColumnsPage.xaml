@@ -5,30 +5,32 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GridCreator.View.Pages"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="650" d:DesignWidth="800">
     
-    <Grid>
+    <StackPanel>
 
         <ListView 
             ScrollViewer.VerticalScrollBarVisibility="Auto" 
             ScrollViewer.HorizontalScrollBarVisibility="Auto" 
             Height="400" 
             x:Name="listOfCollumns"
-            ItemsSource="{Binding Path=AddColumnsOptions}">
+            ItemsSource="{Binding Columns}"
+            SelectionMode="Single"
+            >
 
             <ListView.View>
                 <GridView AllowsColumnReorder="true">
 
                     <GridViewColumn DisplayMemberBinding=
-                          "{Binding Path=Name}" 
+                          "{Binding Path=Label}" 
                       Width="auto" Header="test Heder"/>
 
                     <GridViewColumn DisplayMemberBinding=
-                          "{Binding Path=LastName}" 
+                          "{Binding Path=ColumnName}" 
                       Width="100" Header="test" />
 
                     <GridViewColumn DisplayMemberBinding=
-                          "{Binding Path=EmployeeNumber}" 
+                          "{Binding Path=ID}" 
                       Header="Employee No." Width="100"/>
 
                     <GridViewColumn>
@@ -47,6 +49,7 @@
             </ListView.View>
 
         </ListView>
-
-    </Grid>
+        <Button Width="200" Margin="0 15" Click="test">Add column</Button>
+        <Button Width="200" Click="DisplaySelected">Display Selected</Button>
+    </StackPanel>
 </Page>

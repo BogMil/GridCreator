@@ -54,12 +54,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\AddColumnCommand.cs" />
     <Compile Include="Commands\CustomCommand.cs" />
     <Compile Include="Commands\GoToNextPageCommand.cs" />
     <Compile Include="Commands\GoToPreviousPageCommand.cs" />
     <Compile Include="Commands\HandleButtonsVisibilityCommand.cs" />
     <Compile Include="Commands\SetAddColumnOptionCommand.cs" />
-    <Compile Include="Model\CollumnModel.cs" />
+    <Compile Include="Model\ColumnModel.cs" />
+    <Compile Include="ViewModel\AddColumnViewModel.cs" />
+    <Compile Include="View\AddColumnWindow.xaml.cs">
+      <DependentUpon>AddColumnWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\GridCreatorWindow.xaml.cs">
       <DependentUpon>GridCreatorWindow.xaml</DependentUpon>
     </Compile>
@@ -215,6 +220,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\AddColumnWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\GridCreatorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
