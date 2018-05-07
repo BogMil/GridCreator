@@ -12,12 +12,14 @@ namespace GridCreator.ViewModel
         private ColumnModel _Column;
 
         public ICommand AddColumnCommand { get; set; }
+        public ICommand DeleteColumnCommand { get; set; }
 
         public AddColumnViewModel()
         {
             _JqGridModelInstance = JqGridModelSingletonFactory.Instance;
             _Column = new ColumnModel() { ColumnName = "testColumnNameeeee", Label = "testLabelllll", ID=0 };
-            AddColumnCommand = new AddColumnCommand(AddColumn, CanAddColumn);
+            AddColumnCommand = new CustomCommand(AddColumn, CanAddColumn);
+            DeleteColumnCommand = new CustomCommand(DeleteColumn, CanDeleteColumn);
         }
 
         public ColumnModel Column
@@ -42,6 +44,17 @@ namespace GridCreator.ViewModel
             newColumn.ID = _JqGridModelInstance.ColumnId;
             _JqGridModelInstance.ColumnId++;
             _JqGridModelInstance.Columns.Add(newColumn);
+        }
+
+        public bool CanDeleteColumn(object parameter)
+        {
+            return true;
+        }
+
+        public void DeleteColumn(object parameter)
+        {
+            var columnModel = parameter as ColumnModel;
+            _JqGridModelInstance.Columns.Remove(columnModel);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
