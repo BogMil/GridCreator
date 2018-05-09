@@ -36,7 +36,7 @@ namespace GridCreator.View.Pages
              baseWindow.PageFrame.NavigationService.Navigate(new BasicJqGridOptions());
 
             if (_jqGridModel.AddColumnsOption == "Add columns from SQL Server")
-                baseWindow.PageFrame.NavigationService.Navigate(new Page2());
+                baseWindow.PageFrame.NavigationService.Navigate(new SelectDataBasePage());
 
         }
 

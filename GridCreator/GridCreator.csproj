@@ -85,11 +85,8 @@
       <DependentUpon>ChoseDataSourcePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\BasePage.cs" />
-    <Compile Include="View\Pages\Page1.xaml.cs">
-      <DependentUpon>Page1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\Page2.xaml.cs">
-      <DependentUpon>Page2.xaml</DependentUpon>
+    <Compile Include="View\Pages\SelectDataBasePage.xaml.cs">
+      <DependentUpon>SelectDataBasePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -240,11 +237,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Page1.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\Pages\Page2.xaml">
+    <Page Include="View\Pages\SelectDataBasePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
