@@ -1,4 +1,6 @@
 ﻿using GridCreator.Commands;
+using GridCreator.View;
+using GridCreator.View.Pages;
 using System;
 using System.ComponentModel;
 using System.Windows;
@@ -92,7 +94,8 @@ namespace GridCreator.ViewModel
 
         public void Populate(object parameter)
         {
-            MessageBox.Show(_SqlServerName);
+            var _baseWindowInstance = GridCreatorWindow.Instance;
+            var frame = _baseWindowInstance.PageFrame.NavigationService.Navigate(new testPage(_SqlServerName)) ;
         }
 
         private void HandleCredentialsFormVisibility(object obj)

@@ -89,6 +89,9 @@
     <Compile Include="View\Pages\SelectDataBasePage.xaml.cs">
       <DependentUpon>SelectDataBasePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\testPage.xaml.cs">
+      <DependentUpon>testPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -239,6 +242,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\SelectDataBasePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\testPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

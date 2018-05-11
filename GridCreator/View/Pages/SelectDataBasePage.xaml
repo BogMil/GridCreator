@@ -32,7 +32,7 @@
                 <Label>Username</Label>
                 <TextBox Text="{Binding Username, Source={StaticResource vm}, Mode=TwoWay}"></TextBox>
             </StackPanel>
-            <Button Command="{Binding PopulateComboBoxWithDatabasesCommand, Source={StaticResource vm}}" Margin="10 10 10 10">test</Button>
+            <Button Command="{Binding PopulateComboBoxWithDatabasesCommand, Source={StaticResource vm}}" CommandParameter="{Binding }" Margin="10 10 10 10">test</Button>
         </StackPanel>
     </Grid>
 </Page>
