@@ -4,9 +4,35 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GridCreator.View.Pages"
+             xmlns:ViewModel="clr-namespace:GridCreator.ViewModel"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <Page.Resources>
+        <ViewModel:SelectDataBaseViewModel x:Key="vm"/>
+    </Page.Resources>
     <Grid>
-        <Button Click="Button_Click">test</Button>
+        <StackPanel>
+            <TextBox Text="{Binding SqlServerName, Source={StaticResource vm}, Mode=TwoWay}" Margin="10 10 10 10"/>
+            <CheckBox Margin="10 10 10 10" Content=" Use Windows Identity" IsChecked="{Binding UseWindowsIdentity, Source={StaticResource vm}, Mode=TwoWay}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Checked">
+                        <i:InvokeCommandAction Command="{Binding HandleCredentialsFormVisibilityCommand, Source={StaticResource vm}}" x:Name="interactivityFix"
+                                               CommandParameter="{Binding ElementName=CredentialsForm}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Unchecked">
+                        <i:InvokeCommandAction Command="{Binding HandleCredentialsFormVisibilityCommand, Source={StaticResource vm}}"
+                                               CommandParameter="{Binding ElementName=CredentialsForm}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </CheckBox>
+            <StackPanel Margin="10 10 10 10" x:Name="CredentialsForm">
+                <Label>Username</Label>
+                <TextBox Text="{Binding Password, Source={StaticResource vm}, Mode=TwoWay}"></TextBox>
+                <Label>Username</Label>
+                <TextBox Text="{Binding Username, Source={StaticResource vm}, Mode=TwoWay}"></TextBox>
+            </StackPanel>
+            <Button Command="{Binding PopulateComboBoxWithDatabasesCommand, Source={StaticResource vm}}" Margin="10 10 10 10">test</Button>
+        </StackPanel>
     </Grid>
 </Page>

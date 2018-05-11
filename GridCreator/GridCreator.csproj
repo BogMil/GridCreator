@@ -62,6 +62,7 @@
     <Compile Include="Commands\SetAddColumnOptionCommand.cs" />
     <Compile Include="Model\ColumnModel.cs" />
     <Compile Include="ViewModel\AddColumnViewModel.cs" />
+    <Compile Include="ViewModel\SelectDataBaseViewModel.cs" />
     <Compile Include="View\AddColumnWindow.xaml.cs">
       <DependentUpon>AddColumnWindow.xaml</DependentUpon>
     </Compile>

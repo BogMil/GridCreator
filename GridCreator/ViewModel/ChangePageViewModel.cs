@@ -1,9 +1,6 @@
 ﻿using GridCreator.Commands;
 using GridCreator.Model;
 using GridCreator.View;
-using GridCreator.View.Pages;
-using System;
-using System.Windows;
 using System.Windows.Input;
 
 namespace GridCreator.ViewModel
